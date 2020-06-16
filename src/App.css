@@ -1,4 +1,23 @@
+body{
+  background-color: #f0edf5;
+}
 
+.App{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+}
+
+select{
+    padding: 7px;
+    background-color: #e8e2f3;
+    font-size: initial;
+    font-weight: bold;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
 
 
 
