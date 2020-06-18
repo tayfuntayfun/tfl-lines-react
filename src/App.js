@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Route from './Route'
 
 function App() {
   const [modes, setModes] = useState([]);
   const [selectedMode, setSelectedMode] = useState('');
   const [lines, setLines] = useState([])
+  const [selectedLine, setSelectedLine] = useState('')
 
   useEffect (()=> {
-     fetch('https://api.tfl.gov.uk/Line/Meta/Modes')
-    .then(results => results.json())
-    .then(data => setModes(data))
+    const fetchData = async () => {
+    const result = await fetch('https://api.tfl.gov.uk/Line/Meta/Modes')
+      .then(response => response.json())
+      setModes(result)
+    }
+  fetchData();
   }, []);
 
   useEffect (()=> {
     fetch(`https://api.tfl.gov.uk/Line/Mode/${selectedMode}`)
    .then(results => results.json())
-   .then(data => {setLines(data)
-          console.log(data)})
+   .then(data => setLines(data))
  }, [selectedMode]);
 
   const handleSelectChange = (event) => {
     if (event.target.id === 'modes') {setSelectedMode(event.target.value)
-    } 
+    }
+    if (event.target.id === 'lines') {setSelectedLine(event.target.value)
+    }
   }
   
   const renderSelect = (defaultOption, options, id) => {
@@ -53,11 +59,13 @@ function App() {
   return (
     <div className="App">
       {renderSelect('Choose a Mode of Transport...', modes, 'modes')}
-      {lines.length > 0 ? renderSelect('Choose a Line...', lines, 'lines') : null}
+  
     <p style={{ textAlign:'left',
                 marginLeft: '10px'}}><b>You selected Transport Mode: <span style={{color:'purple'}}>{selectedMode}</span></b></p>
-    {/* <p style={{ textAlign:'left',
-                marginLeft: '10px'}}><b>You selected line: <span style={{color:'purple'}}>{lines}</span></b></p>     */}
+    {lines.length > 0 ? renderSelect('Choose a Line...', lines, 'lines') : null}
+    
+    <Route selectedLine={selectedLine}
+           selectedMode={selectedMode} />
     </div>
   );
 }
