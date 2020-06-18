@@ -15,11 +15,17 @@ const Route  = (props) => {
 
   return route.routeSections ? 
     <div className='route-plan'>
-        <p> {props.selectedMode.charAt(0).toUpperCase() + props.selectedMode.slice(1)} : {props.selectedLine}</p>
+        <p style={{fontWeight:'bolder'}}> {props.selectedMode.toUpperCase()} : {props.selectedLine.toUpperCase()}</p>
         <div className='route-show'>
-            <p className='route-Start-End'>Start : {route.routeSections[0].originationName}</p>
-            <p style={{width:'10px', fontWeight:'bolder'}}>→</p> 
-            <p className='route-Start-End'>End : {route.routeSections[0].destinationName}</p>
+            <div className='route-Start-End'>
+              <p className='route-start'>START OF LINE</p>
+              <p className='route-start-station'>{route.routeSections[0].originationName}</p>
+            </div>
+            <p style={{width:'30px',  fontWeight:'bolder', alignSelf:'center'}}>--></p> 
+            <div className='route-Start-End'>
+              <p className='route-end'>END OF LINE</p>
+              <p className='route-end-station'>{route.routeSections[0].destinationName}</p>
+            </div>
         </div>
     </div> 
     : '';

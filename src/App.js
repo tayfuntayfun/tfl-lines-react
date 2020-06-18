@@ -35,7 +35,8 @@ function App() {
       <select className={'select-bar'}
               onChange={handleSelectChange} 
               id={id}>
-      <option selected={true}
+      <option style={{marginTop:'5px'}}
+              selected={true}
               value={defaultOption}>
                 {defaultOption}
               </option>
