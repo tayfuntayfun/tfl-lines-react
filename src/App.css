@@ -6,8 +6,14 @@ body{
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 60%;
+  width: 40%;
   margin-top: 20px;
+}
+
+img{
+  height: 14rem;
+  width: auto;
+  margin-bottom: 20px;
 }
 
 select{
@@ -17,7 +23,6 @@ select{
     font-weight: bold;
     border: 2px solid rgb(221, 220, 220);
     border-radius: 5px;
-
 }
 
 select option {

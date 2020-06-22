@@ -21,7 +21,7 @@ const Route  = (props) => {
               <p className='route-start'>START OF LINE</p>
               <p className='route-start-station'>{route.routeSections[0].originationName}</p>
             </div>
-            <p style={{width:'30px',  fontWeight:'bolder', alignSelf:'center'}}>--></p> 
+            <p style={{width:'30px',  fontSize:'30px', alignSelf:'center'}}>→</p> 
             <div className='route-Start-End'>
               <p className='route-end'>END OF LINE</p>
               <p className='route-end-station'>{route.routeSections[0].destinationName}</p>

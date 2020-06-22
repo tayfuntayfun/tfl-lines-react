@@ -59,6 +59,7 @@ function App() {
   }
   return (
     <div className="App">
+      <img src="/header-image.jpg" alt="tfl-logo"/>
       {renderSelect('Choose a Mode of Transport...', modes, 'modes')}
   
     <p style={{ textAlign:'left',
